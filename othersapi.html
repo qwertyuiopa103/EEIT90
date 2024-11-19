@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab14</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>others api</h1>
+    </header>
+    <div class="container">
+        <table>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+        </table>
+        <hr>
+        <button class="btn" data-name="Shohei Othani" data-team="LA" data-age="30">Shohei Othani</button>
+        <button class="btn" data-name="Stephen Curry" data-team="warriors" data-age="36">Stephen Curry</button>
+        <h3 id="target"></h3>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(function () {
+            //code
+            // each()
+            let arr = ['Gary', 123, 'EEIT190']
+            $.each(arr, function (index, ele) {
+                console.log(ele);
+            })
+            let sum = 0;
+            $('td').each(function () {
+                sum += Number($(this).text());
+            })
+            console.log(sum);
+
+            // inArray() 搜尋你陣列資料的索引直 沒有回傳-1
+            let arr1 = ['9', '8', 7, 6, 4, '5', 3, 2, 1];
+            console.log($.inArray('8', arr1));
+            console.log($.inArray(7, arr1));
+            console.log($.inArray(0, arr1));
+
+            // grep() 過濾你所設定條件回傳新的陣列
+            let arr2 = $.grep(arr1, function (item, index) {
+                return (item >= 5 && index >= 1);
+            })
+            console.log(arr2);
+
+            // data()
+            $('.btn').click(function () {
+                let name = $(this).data('name'), team = $(this).data('team'), age = $(this).data('age');
+                $('#target').text(`${name} age is ${age} and team is ${team}`);
+            })
+        })
+    </script>
+</body>
+
+</html>
